@@ -7,7 +7,9 @@ title: Every thing you should know about
 subtitle:
 description:
 author: imcoddy
-language: zh-cn
+language:
+- zh-CN
+- en
 timezone:
 
 # URL
@@ -77,4 +79,6 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@github.com:imcoddy/bitcoin-cash-note.git
+  branch: gh-pages
