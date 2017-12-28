@@ -1,7 +1,7 @@
 ---
 title: '比特币的本质究竟是什么？'
 date: 2017-12-25 15:54:48
-tags:  pow , bitcoin, bitcoincash, fork, mining
+tags:  [pow , bitcoin, bitcoincash, fork, mining]
 ---
 
 比特币的本质究竟是什么？在2017年的今天，依然只有很少一批人才能说清楚。

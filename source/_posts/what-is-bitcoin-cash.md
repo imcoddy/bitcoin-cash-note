@@ -1,7 +1,7 @@
 ---
 title: 比特币现金是什么
 date: 2017-12-27 13:51:46
-tags: wiki, bitcoincash, beginner
+tags: [wiki, bitcoincash, beginner]
 ---
 
 Bitcoin Cash（缩写为BCH，曾用名BCC），中文名译为比特现金，其客户端软件Bitcoin ABC是对Bitcoin core 0.14进行fork（复制并修改）得来的版本，将区块大小调整到了8M，并且移除了隔离见证（SW）。2017年8月1号UTC时间12:37，比特币区块高度478558开始分叉，BCC由此而来，可将其视作比特币（BTC）的分叉币或竞争币。

@@ -1,7 +1,7 @@
 ---
 title: 'PoW 机制的深层本质究竟是什么'
 date: 2017-12-26 16:51:21
-tags: pow, bitcoin, bitcoincash, fork, mining
+tags: [pow, bitcoin, bitcoincash, fork, mining]
 ---
 
 由Adam Back发明的HashCash所带来的PoW机制的深层本质究竟是什么，其实是一个很值得深思的问题。
