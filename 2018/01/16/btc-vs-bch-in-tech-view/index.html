@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>闪电网络和“中本聪”:BTC 与 BCH 的技术路线对比 | Every thing you should know about</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="从 BCH 分叉之后，关于 BTC 和 BCH 谁是真正的比特币的争论就从未停止过。12 月 6 日，BCH 技术开发团队之一的 nChain 发公告表示，他们认为比特币现金才是真正的比特币，通过更大的区块以实现更快的交易速度和更低的交易费用，符合中本聪对比特币“一个点对点的电子支付系统”的愿景。 然而从发展的角度来看，现在依然沉迷于“谁是真正的比特币”这种情怀之中，并没有太大意义，因为技术终归要">
+<meta name="keywords" content="bitcoincash,lightening,vision,tech">
+<meta property="og:type" content="article">
+<meta property="og:title" content="闪电网络和“中本聪”:BTC 与 BCH 的技术路线对比">
+<meta property="og:url" content="https://imcoddy.github.io/bitcoin-cash-note/2018/01/16/btc-vs-bch-in-tech-view/index.html">
+<meta property="og:site_name" content="Every thing you should know about">
+<meta property="og:description" content="从 BCH 分叉之后，关于 BTC 和 BCH 谁是真正的比特币的争论就从未停止过。12 月 6 日，BCH 技术开发团队之一的 nChain 发公告表示，他们认为比特币现金才是真正的比特币，通过更大的区块以实现更快的交易速度和更低的交易费用，符合中本聪对比特币“一个点对点的电子支付系统”的愿景。 然而从发展的角度来看，现在依然沉迷于“谁是真正的比特币”这种情怀之中，并没有太大意义，因为技术终归要">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-01-17T12:45:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="闪电网络和“中本聪”:BTC 与 BCH 的技术路线对比">
+<meta name="twitter:description" content="从 BCH 分叉之后，关于 BTC 和 BCH 谁是真正的比特币的争论就从未停止过。12 月 6 日，BCH 技术开发团队之一的 nChain 发公告表示，他们认为比特币现金才是真正的比特币，通过更大的区块以实现更快的交易速度和更低的交易费用，符合中本聪对比特币“一个点对点的电子支付系统”的愿景。 然而从发展的角度来看，现在依然沉迷于“谁是真正的比特币”这种情怀之中，并没有太大意义，因为技术终归要">
+  
+    <link rel="alternate" href="/bitcoin-cash-note/atom.xml" title="Every thing you should know about" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/bitcoin-cash-note/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/bitcoin-cash-note/" id="logo">Every thing you should know about</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/bitcoin-cash-note/">Home</a>
+        
+          <a class="main-nav-link" href="/bitcoin-cash-note/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/bitcoin-cash-note/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://imcoddy.github.io/bitcoin-cash-note"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-btc-vs-bch-in-tech-view" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/bitcoin-cash-note/2018/01/16/btc-vs-bch-in-tech-view/" class="article-date">
+  <time datetime="2018-01-16T04:52:20.000Z" itemprop="datePublished">2018-01-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      闪电网络和“中本聪”:BTC 与 BCH 的技术路线对比
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>从 BCH 分叉之后，关于 BTC 和 BCH 谁是真正的比特币的争论就从未停止过。12 月 6 日，BCH 技术开发团队之一的 nChain 发公告表示，他们认为比特币现金才是真正的比特币，通过更大的区块以实现更快的交易速度和更低的交易费用，符合中本聪对比特币“一个点对点的电子支付系统”的愿景。</p>
+<p>然而从发展的角度来看，现在依然沉迷于“谁是真正的比特币”这种情怀之中，并没有太大意义，因为技术终归要向前发展，“中本聪”开启了一个时代，而这个时代将走向何方，没有人知道。</p>
+<a id="more"></a>
+<h2 id="BTC的闪电网络"><a href="#BTC的闪电网络" class="headerlink" title="BTC的闪电网络"></a>BTC的闪电网络</h2><p>BTC 的开发人员们一直致力于研究闪电网络以及智能合约等技术。12 月 7 日，闪电网络的开发者团队 ACINQ，Blockstream 和闪电网络实验室联合发布了闪电协议 1.0 版本，对一系列协议进行了规范和整合。</p>
+<p>互操作性和 lnd：闪电网络实验室的 CEO Elizabeth Stark 说，</p>
+<blockquote>
+<p>“互操作性是闪电网络成功的关键，为此我们已经工作了一年多。互操作性将能够做到无论用户使用的是何种应用程序，都可以确保其被连接到同一层闪电网络中来。”</p>
+</blockquote>
+<p>因此，他们发布了闪电网络守护进程（lnd），完整实现了闪电网络节点的部署。据了解，目前该协议可以实现：</p>
+<ul>
+<li>创建通道；</li>
+<li>关闭通道；</li>
+<li>完全管理通道内状态（包括特殊状态）；</li>
+<li>维护一个经验证的通道；</li>
+<li>在网络中执行路径查找和被动转发收入支出；</li>
+<li>通过 onion-encrypted payments （用于存储用户哈希时间锁定的数据库）支出；</li>
+<li>自动通道管理。</li>
+</ul>
+<p>其实，早在今年 8 月份隔离见证被激活之后，闪电网络实验室就发布了 lnd v 0.3 版本，并与莱特币实现了跨链交换。</p>
+<p>兼容性和 c-lightning：一位来自 Blockstream 的基础设施技术工程师 Christian Decker 说，</p>
+<p>“测试表明经过一年多的开发，我们已经构建了一个可靠的协议，来兑现增强区块可延展性、增加隐私性和更快捷支付的承诺。”</p>
+<p>本质上，闪电网络就是为了解决比特币区块的可延展性，使之可以在任意两方之间进行安全、即时的资金转移。而 c-lightning 就是闪电网络中能够实现兼容的协议，目前，开发人员表示，它还只能运行在 Linux 操作系统上，并且需要一个本地运行的 bitcoind(0.15 版本或以上)。</p>
+<p>Éclair和“Starblocks”：Éclair 在法语中意为“闪电”，它是闪电网络的 scala 语言实现，能够在没有 GPU 的情况下运行。它遵循闪电网络规范（BOLTs），并且包括 c-lightning 和 lnd。</p>
+<p>据了解，Éclair 协议由区块链技术公司 ACINQ 开发。为了测试Éclair 网络，他们专门开设了一个名为“Starblocks”的咖啡厅，并利用Éclair，通过 lnd 闪电网络 APP 和 c-lightning 路由实现了第一次，通过Éclair 用比特币购买咖啡。</p>
+<p>另外，他们还通过闪电网络在 yalls.org 上购买了一篇付费文章。ACINQ，Blockstream 和闪电网络实验室三家开发团队表示，目前闪电网络已经具备了即时、小额的支付能力，并且测试使用的节点已经分布在了亚洲、欧洲、南美和北美等世界各地。</p>
+<p>据了解，下一步他们的计划是继续开发和测试工作，以尽快发布一个 beta 版主网，使更多用户可以通过闪电网络进行小额的比特币支付。</p>
+<h2 id="BCH的“中本聪”思想"><a href="#BCH的“中本聪”思想" class="headerlink" title="BCH的“中本聪”思想"></a>BCH的“中本聪”思想</h2><p>相比于 BTC 大刀阔斧的技术改革，比特币现金的开发团队依然坚持走大区块路线，并且在此基础上积极添加智能合约等功能。</p>
+<p>据了解，目前 BCH 的主要开发者包括 Bitcoin ABC、Bitcoin Unlimited、Bitprim、Nchain 等七个拥有共同愿景的开发团队。他们一直将中本聪思想视为发展的基础。</p>
+<p>上周，他们发布了 BCH 的中期发展路线：</p>
+<blockquote>
+<p>nChain 团队建议每六个月定期更新一次协议，并计划 2018 年 5 月 15 日，进行下一次协议升级，将区块大小从 8M 提升到 32M；<br>另外，开发者们还计划增加默认区块大小上限，以实现自适应区块大小的目的。<br>Bitprim 创始人 Juan Garavaglia 表示，他们正在 BCH 区块链上开发和测试智能合约。</p>
+</blockquote>
+<p>虽然 BCH 始终坚持大区块，但并非不能实现智能合约等复杂的技术。原始比特币代码关于“智能合约”最大的争议就是，“比特币不是图灵完备的编程语言”。然而，Drop Zone 的主要开发者 Christ DeRose 曾在一篇 文章 中，从“成本效益”、“互联网效益”和“透明度问题”等三个方面完整论述了，其实要图灵完备的智能合约，并非必要。</p>
+<p>另外一方面，BCH 的开发团队还计划恢复一些已经停用的 Opcode，以增加协议扩展接口，为未来进一步升级操作码奠定基础。</p>
+<p>改进 DAA 动态难度调整算法，修改 BCH 地址格式。</p>
+<p>其实，通过 BTC 和 BCH 的技术发展方向可以看出，他们对增加比特币可延展性、提高交易速度、降低交易费用以及实现点对点小额即时支付的愿景还是一致的，只是他们所选择的方式不同罢了。</p>
+<p>随着技术的发展和市场的不断演化，“比特币”早已不能再单纯的用来形容某一种数字货币，而中本聪最初的思想也不能完全设定比特币未来技术的发展轨迹。它们都已经在数字货币的演化过程中，逐渐变成了一种更加系统和抽象的概念。</p>
+<p>谁是真正的比特币已经不重要了，重要的是比特币开启了数字货币的新纪元，而数字货币的技术，终将要继续向前发展。</p>
+<p>原文：<a href="https://wallstreetcn.com/articles/3046146" target="_blank" rel="noopener">https://wallstreetcn.com/articles/3046146</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://imcoddy.github.io/bitcoin-cash-note/2018/01/16/btc-vs-bch-in-tech-view/" data-id="cjcj2d68f0000w3n90k542zey" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bitcoin-cash-note/tags/bitcoincash/">bitcoincash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bitcoin-cash-note/tags/lightening/">lightening</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bitcoin-cash-note/tags/tech/">tech</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bitcoin-cash-note/tags/vision/">vision</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/bitcoin-cash-note/2017/12/29/problems-with-lightning-network/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">闪电网络面临的问题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/bitcoin-cash-note/tags/beginner/">beginner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bitcoin-cash-note/tags/bitcoin/">bitcoin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bitcoin-cash-note/tags/bitcoincash/">bitcoincash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bitcoin-cash-note/tags/fork/">fork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bitcoin-cash-note/tags/lightening/">lightening</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bitcoin-cash-note/tags/lightning/">lightning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bitcoin-cash-note/tags/mining/">mining</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bitcoin-cash-note/tags/pow/">pow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bitcoin-cash-note/tags/scaling/">scaling</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bitcoin-cash-note/tags/tech/">tech</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bitcoin-cash-note/tags/vision/">vision</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bitcoin-cash-note/tags/wiki/">wiki</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/bitcoin-cash-note/tags/beginner/" style="font-size: 10px;">beginner</a> <a href="/bitcoin-cash-note/tags/bitcoin/" style="font-size: 16.67px;">bitcoin</a> <a href="/bitcoin-cash-note/tags/bitcoincash/" style="font-size: 20px;">bitcoincash</a> <a href="/bitcoin-cash-note/tags/fork/" style="font-size: 13.33px;">fork</a> <a href="/bitcoin-cash-note/tags/lightening/" style="font-size: 10px;">lightening</a> <a href="/bitcoin-cash-note/tags/lightning/" style="font-size: 10px;">lightning</a> <a href="/bitcoin-cash-note/tags/mining/" style="font-size: 13.33px;">mining</a> <a href="/bitcoin-cash-note/tags/pow/" style="font-size: 13.33px;">pow</a> <a href="/bitcoin-cash-note/tags/scaling/" style="font-size: 10px;">scaling</a> <a href="/bitcoin-cash-note/tags/tech/" style="font-size: 10px;">tech</a> <a href="/bitcoin-cash-note/tags/vision/" style="font-size: 10px;">vision</a> <a href="/bitcoin-cash-note/tags/wiki/" style="font-size: 10px;">wiki</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/bitcoin-cash-note/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bitcoin-cash-note/archives/2017/12/">十二月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/bitcoin-cash-note/2018/01/16/btc-vs-bch-in-tech-view/">闪电网络和“中本聪”:BTC 与 BCH 的技术路线对比</a>
+          </li>
+        
+          <li>
+            <a href="/bitcoin-cash-note/2017/12/29/problems-with-lightning-network/">闪电网络面临的问题</a>
+          </li>
+        
+          <li>
+            <a href="/bitcoin-cash-note/2017/12/27/what-is-bitcoin-cash/">比特币现金是什么</a>
+          </li>
+        
+          <li>
+            <a href="/bitcoin-cash-note/2017/12/26/what-is-the-essence-of-pow-mechanism/">PoW 机制的深层本质究竟是什么</a>
+          </li>
+        
+          <li>
+            <a href="/bitcoin-cash-note/2017/12/25/what-is-the-essence-of-bitcoin/">比特币的本质究竟是什么？</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 imcoddy<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/bitcoin-cash-note/" class="mobile-nav-link">Home</a>
+  
+    <a href="/bitcoin-cash-note/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/bitcoin-cash-note/fancybox/jquery.fancybox.css">
+  <script src="/bitcoin-cash-note/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/bitcoin-cash-note/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
