@@ -1,7 +1,7 @@
 ---
 title: 闪电网络和“中本聪”:BTC 与 BCH 的技术路线对比
 date: 2018-01-16 13:52:20
-tags: [bitcoincash, lightening, vision, tech]
+tags: [bitcoincash, lightning, vision, tech]
 ---
 
 从 BCH 分叉之后，关于 BTC 和 BCH 谁是真正的比特币的争论就从未停止过。12 月 6 日，BCH 技术开发团队之一的 nChain 发公告表示，他们认为比特币现金才是真正的比特币，通过更大的区块以实现更快的交易速度和更低的交易费用，符合中本聪对比特币“一个点对点的电子支付系统”的愿景。
