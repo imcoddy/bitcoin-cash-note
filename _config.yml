@@ -3,13 +3,14 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Every thing you should know about
+title: Bitcoin Cash Note
 subtitle:
 description:
 author: imcoddy
 language:
-- zh-CN
 - en
+- cn
+- zh-CN
 timezone:
 
 # URL
@@ -74,7 +75,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
