@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="bitcoincash,mining,pool,satoshi," />
+  <meta name="keywords" content="bitcoincash,bitcoin,network,smallworld," />
 
 
 
@@ -79,18 +79,22 @@
 
 
 
-<meta name="description" content="问：您好，我想问您一个技术问题，看了好多文章说法都不一样，您看看我理解的对不对。关于矿工挖矿有两种理解：1.白皮书规定谁计算出哈希值，挖出的矿归谁，因为现在算力太高，普通旷工很难有收益，所以某个矿池算力高，挖出来的几率大，但是一个区块也只有一个矿池能获得全部币，矿池内部根据算力贡献度平分这些币。2.白皮书就是说的大家一起算哈希，只要哈希算出来了，大家自动按算力平分挖矿所得。 我自己倾向于认为1是对">
-<meta name="keywords" content="bitcoincash,mining,pool,satoshi">
+<meta name="description" content="前言：比特币诞生至今已经近十年，但当被问及比特币是什么时，依然很少有人能够准确地解释清楚。《正本清源比特币》系列，将追寻中本聪的足迹，向读者展示比特币创造者对比特币的构想及背后蕴含的寓意，以纠正一些人对比特币的误解。 首先要纠正的，是大家对比特币网络结构类型的认知：小世界网络。">
+<meta name="keywords" content="bitcoincash,bitcoin,network,smallworld">
 <meta property="og:type" content="article">
-<meta property="og:title" content="矿池的意义在哪里？">
-<meta property="og:url" content="https://imcoddy.github.io/bitcoin-cash-note/2018/03/04/the-meaning-of-mining-pool/index.html">
+<meta property="og:title" content="正本清源比特币之一：小世界网络">
+<meta property="og:url" content="https://imcoddy.github.io/bitcoin-cash-note/2018/06/10/bitcoin-rethink-1-small-world-network/index.html">
 <meta property="og:site_name" content="Bitcoin Cash Note">
-<meta property="og:description" content="问：您好，我想问您一个技术问题，看了好多文章说法都不一样，您看看我理解的对不对。关于矿工挖矿有两种理解：1.白皮书规定谁计算出哈希值，挖出的矿归谁，因为现在算力太高，普通旷工很难有收益，所以某个矿池算力高，挖出来的几率大，但是一个区块也只有一个矿池能获得全部币，矿池内部根据算力贡献度平分这些币。2.白皮书就是说的大家一起算哈希，只要哈希算出来了，大家自动按算力平分挖矿所得。 我自己倾向于认为1是对">
+<meta property="og:description" content="前言：比特币诞生至今已经近十年，但当被问及比特币是什么时，依然很少有人能够准确地解释清楚。《正本清源比特币》系列，将追寻中本聪的足迹，向读者展示比特币创造者对比特币的构想及背后蕴含的寓意，以纠正一些人对比特币的误解。 首先要纠正的，是大家对比特币网络结构类型的认知：小世界网络。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-03-04T09:35:17.672Z">
+<meta property="og:image" content="http://i1375.photobucket.com/albums/ag455/imcoddy/bitcoin/small-world-network_zpspsjygfkn.png">
+<meta property="og:image" content="http://i1375.photobucket.com/albums/ag455/imcoddy/bitcoin/Centralised-decentralised-and-distributed-networks-Baran-in-Barabasi-2003_zpsxnpqulzx.png">
+<meta property="og:image" content="https://img.youtube.com/vi/D0Jqah-DrpU/0.jpg">
+<meta property="og:updated_time" content="2018-06-10T12:54:57.980Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="矿池的意义在哪里？">
-<meta name="twitter:description" content="问：您好，我想问您一个技术问题，看了好多文章说法都不一样，您看看我理解的对不对。关于矿工挖矿有两种理解：1.白皮书规定谁计算出哈希值，挖出的矿归谁，因为现在算力太高，普通旷工很难有收益，所以某个矿池算力高，挖出来的几率大，但是一个区块也只有一个矿池能获得全部币，矿池内部根据算力贡献度平分这些币。2.白皮书就是说的大家一起算哈希，只要哈希算出来了，大家自动按算力平分挖矿所得。 我自己倾向于认为1是对">
+<meta name="twitter:title" content="正本清源比特币之一：小世界网络">
+<meta name="twitter:description" content="前言：比特币诞生至今已经近十年，但当被问及比特币是什么时，依然很少有人能够准确地解释清楚。《正本清源比特币》系列，将追寻中本聪的足迹，向读者展示比特币创造者对比特币的构想及背后蕴含的寓意，以纠正一些人对比特币的误解。 首先要纠正的，是大家对比特币网络结构类型的认知：小世界网络。">
+<meta name="twitter:image" content="http://i1375.photobucket.com/albums/ag455/imcoddy/bitcoin/small-world-network_zpspsjygfkn.png">
 
 
 
@@ -120,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://imcoddy.github.io/bitcoin-cash-note/2018/03/04/the-meaning-of-mining-pool/"/>
+  <link rel="canonical" href="https://imcoddy.github.io/bitcoin-cash-note/2018/06/10/bitcoin-rethink-1-small-world-network/"/>
 
 
 
 
 
-  <title>矿池的意义在哪里？ | Bitcoin Cash Note</title>
+  <title>正本清源比特币之一：小世界网络 | Bitcoin Cash Note</title>
   
 
 
@@ -253,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://imcoddy.github.io/bitcoin-cash-note/bitcoin-cash-note/2018/03/04/the-meaning-of-mining-pool/">
+    <link itemprop="mainEntityOfPage" href="https://imcoddy.github.io/bitcoin-cash-note/bitcoin-cash-note/2018/06/10/bitcoin-rethink-1-small-world-network/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="imcoddy">
@@ -270,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">矿池的意义在哪里？</h1>
+          <h1 class="post-title" itemprop="name headline">正本清源比特币之一：小世界网络</h1>
         
 
         <div class="post-meta">
@@ -282,8 +286,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-04T18:21:10+09:00">
-                2018-03-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-10T11:56:07+09:00">
+                2018-06-10
               </time>
             
 
@@ -301,9 +305,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/bitcoin-cash-note/2018/03/04/the-meaning-of-mining-pool/#comments" itemprop="discussionUrl">
+                <a href="/bitcoin-cash-note/2018/06/10/bitcoin-rethink-1-small-world-network/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/04/the-meaning-of-mining-pool/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/10/bitcoin-rethink-1-small-world-network/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -331,21 +335,28 @@
       
 
       
-        <p>问：您好，我想问您一个技术问题，看了好多文章说法都不一样，您看看我理解的对不对。关于矿工挖矿有两种理解：1.白皮书规定谁计算出哈希值，挖出的矿归谁，因为现在算力太高，普通旷工很难有收益，所以某个矿池算力高，挖出来的几率大，但是一个区块也只有一个矿池能获得全部币，矿池内部根据算力贡献度平分这些币。2.白皮书就是说的大家一起算哈希，只要哈希算出来了，大家自动按算力平分挖矿所得。</p>
-<p>我自己倾向于认为1是对的，因为白皮书是这么写的，但是这里有个逻辑问题就是如果1对，那个人矿工几乎不会有收益，好像与事实不符。中本聪希望看到的就是这样专业矿池取代小作坊吧，因为花费了大量成本，所以利益上是一体的。但是我不太能理解既然要这样设计，为什么要矿池内按算力分利益，而不是直接全网按算力平分呢？矿池的意义在哪里？<br><a id="more"></a></p>
-<h3 id="1、去中心化"><a href="#1、去中心化" class="headerlink" title="1、去中心化"></a>1、去中心化</h3><p>其实你和对方的理解都是对的，只是去中心化有程度之分，有3个节点是去中心化，有3万个节点也是去中心化，程度不同而已。</p>
-<p>去中心化是防止有单一中央节点垄断，因为这就变成了央行。但去中心化不是没有代价的，就是效率降低。过于去中心化，会使得统筹协调、数据同步变得困难，所以要找一个平衡点，这个平衡点应该是市场去自动寻找，而不是像Core开发组那样人为强行限制。实际上，即使有1M的人为限制，也没拦住比特大陆这样的“垄断”矿工出现，所以限制区块来遏制“垄断”，其实是没什么效果的。</p>
-<p>长期来说，这个比例应该是恒定的，太低则网络不够安全，太高则网络太昂贵而让大众难以承受，最终市场会给出这个比例应该是多少。</p>
-<h3 id="2、矿池"><a href="#2、矿池" class="headerlink" title="2、矿池"></a>2、矿池</h3><p>中本聪不是希望而是预期未来矿工必然会聚集在一起形成矿池以降低收益的不确定性，甚至中本聪本人就协助过早期的矿池诞生（这个我不确定，但多次听挖矿的专业矿工提起）。</p>
-<p>中本聪最开始时对矿工的看法<a href="http://satoshi.nakamotoinstitute.org/emails/cryptography/2/#selection-67.0-83.14" target="_blank" rel="noopener">如下</a>：</p>
+        <p>前言：比特币诞生至今已经近十年，但当被问及比特币是什么时，依然很少有人能够准确地解释清楚。《正本清源比特币》系列，将追寻中本聪的足迹，向读者展示比特币创造者对比特币的构想及背后蕴含的寓意，以纠正一些人对比特币的误解。</p>
+<p>首先要纠正的，是大家对比特币网络结构类型的认知：小世界网络。</p>
+<a id="more"></a>
+<h2 id="什么是小世界网络？"><a href="#什么是小世界网络？" class="headerlink" title="什么是小世界网络？"></a>什么是小世界网络？</h2><p>在数学、物理学和社会学中，小世界网络是一种数学上图的类型，在这种图中大部分的结点不与彼此邻接，但大部分结点可以从任一其他点经少数几步就可到达。若将一个小世界网络中的点代表一个人，而连结线代表人与人认识，则这小世界网络可以反映陌生人由彼此共同认识的人而连结的小世界现象。</p>
+<p><img src="http://i1375.photobucket.com/albums/ag455/imcoddy/bitcoin/small-world-network_zpspsjygfkn.png" alt="small-world-network"></p>
+<p>比特币节点组成的网络是一个小世界网络，这是论文《<a href="https://www.researchgate.net/publication/262562539_Exploring_the_Bitcoin_Network" target="_blank" rel="noopener">Exploring the Bitcoin Network</a>》中得到的结论:</p>
 <blockquote>
-<p>Long before the network gets anywhere near as large as that, it would be safe<br>for users to use Simplified Payment Verification (section 8) to check for double spending, which only requires having the chain of block headers, or about 12KB per day. Only people trying to create new coins would need to run network nodes. At first, most users would run network nodes, but as the network grows beyond a certain point, it would be left more and more to specialists with server farms of specialized hardware. A server farm would only need to have one node on the network and the rest of the LAN connects with that one node.</p>
+<p>One important result concerns the relationship of network usage and exchange rate, where a strong connection could be confirmed. Moreover, there are indicators that the Bitcoin system is a “small world” network and follows a scale-free degree distribution.</p>
 </blockquote>
-<p>建立矿池的目的主要不是利益一致，主要是降低矿工收益的起伏。大致类似于大家凑份子买彩票，也类似于买基金，都是降低不确定性，目的就是让自己的收益能够尽量稳定，比如把“3年间偶然挖到一个块，一个块就赚50个币” 改为 “3年里每个星期都必然能有0.333个币的收益，连续挖3年，一共赚取50个币”。</p>
-<h3 id="3、全网为何不能每次按算力平分"><a href="#3、全网为何不能每次按算力平分" class="headerlink" title="3、全网为何不能每次按算力平分"></a>3、全网为何不能每次按算力平分</h3><p>因为去中心化的全网不能统计矿工的算力比例，这个统计工作必须由一个中心化的矿池来完成（我估计是通过矿池的权力中心，依据分配任务的多少来统计每个矿工的算力多少，具体方法要问运营矿池的人），然后按算力比例来把挖到的50个币切碎了分配。</p>
-<p>之所以统计工作必须由一个中心节点来做，是因为POW的工作量证明是计算一个随机函数来实现的，即究竟哪个矿工能率先完成计算是随机的，即算力小的也可能战胜大算力在某一次胜出，所以凭着单次出块是无法知道其他那些没出块的矿工到底有多大算力的，某个矿工能胜出可能不是算力大，而只是运气好。</p>
-<p>所以单次出块，全网无法根据挖矿结果获知全网算力比例，但是中心化的矿池可以根据任务分配量来统计算力比例。</p>
-<p><a href="https://www.weibo.com/hxsl0622?refer_flag=0000015012_&amp;from=feed&amp;loc=nickname&amp;is_all=1#1520156103254" target="_blank" rel="noopener">https://www.weibo.com/hxsl0622?refer_flag=0000015012_&amp;from=feed&amp;loc=nickname&amp;is_all=1#1520156103254</a></p>
+<p>这意味着，比特币网络中节点的紧密度比许多人想象的要密得多。</p>
+<h2 id="小世界网络有什么意义？"><a href="#小世界网络有什么意义？" class="headerlink" title="小世界网络有什么意义？"></a>小世界网络有什么意义？</h2><p>在谈论网络拓扑结构的时候，人们通常会认为是以下几种形式。</p>
+<p><img src="http://i1375.photobucket.com/albums/ag455/imcoddy/bitcoin/Centralised-decentralised-and-distributed-networks-Baran-in-Barabasi-2003_zpsxnpqulzx.png" alt="Centralised-decentralised-and-distributed-networks"></p>
+<p>作为一个去中心化的网络，比特币网络很容易让人认为它是处于上图中第二和第三种状态之间。这样的网络结构也被称为 <a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%8A%B6%E7%BD%91%E7%BB%9C" target="_blank" rel="noopener">Mesh 网络</a>。在这种状态下，平均每十分钟一个区块要传播至全网，需要通过若干节点的几跳（相邻节点的一次传递叫一个跳）的传递，才能使得区块从网络的一端传递至另一端。</p>
+<p>而在实际情况中，节点会倾向于与连接性良好的其它节点保持紧密关联，以便能尽快地接收交易信息以及将自己打包的区块传递出去。这使得节点在加入比特币网络后，会尽量与更多节点直接关联，从而让整个比特币网络慢慢变成了一张近完全图（Near Completed Graph)。下面的视频，生动地显示了新节点不断加入比特币网络后整体变得更加紧密的过程。</p>
+<p><a href="https://www.youtube.com/watch?v=D0Jqah-DrpU" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/D0Jqah-DrpU/0.jpg" alt="Block Propagation"></a></p>
+<p>小世界网络使得在比特币网络中广播区块交易信息非常高效，平均在两跳之内即可将信息同步到大部分的节点。这也是比特币网络自然进化的结果：各个节点之间是竞争关系，因为它们需要争取下一个块的打包权；同时他们又不得不与其它节点保持良好沟通，以保证自己在挖矿过程中不处于劣势。</p>
+<h2 id="小世界网络是否让比特币变得中心化？"><a href="#小世界网络是否让比特币变得中心化？" class="headerlink" title="小世界网络是否让比特币变得中心化？"></a>小世界网络是否让比特币变得中心化？</h2><p>这是一个很多人无法理解的坎：要尽可能地与更多节点保持连接意味着需要提升节点的硬件性能。如果最后变成了都是服务器级别的节点，这不会让很多爱好者无法自己在家运行，最后只有少数几个大矿场参与的游戏？</p>
+<p>这是一个很值得讨论的问题。</p>
+<p>关于去中心化的更详尽讨论，我今后会另外撰文。在这里，希望读者能够先思考一下：去中心化的度应该如何衡量？在人人自建节点挖矿和只有屈指可数的节点参与之间，怎么样算足够去中心化？如何尽量保证比特币网络能够足够分散而不会因为单点故障而崩溃，同时又能尽可能保持整个网络高效运作？</p>
+<p>中本聪在比特币初期，孤独地一个人挖了一年之久，那时的比特币网络是中心化的，因为如果中本聪关了机后整个网络将停止运作。但那也是去中心化的，因为它对任何人开放，也随着后来加入的人越来越多，一直发展至今天的模样。</p>
+<p>因此，对于这个问题，比特币的节点组成的小世界网络是对外开放的，它不像 EOS 这样指定了候选人，任何节点都可以自由地加入其中并有机会挖到块。同时这也是竞争激烈的，通过优胜劣汰的方式，让一些过时的设备不得不出局，从而让整个网络的承载能力能逐渐提升。</p>
+<p>而自由竞争，是比特币演化的奥义所在。这一点我将在今后的一系列文章里阐明，静请期待。</p>
 
       
     </div>
@@ -389,11 +400,11 @@
           
             <a href="/bitcoin-cash-note/tags/bitcoincash/" rel="tag"># bitcoincash</a>
           
-            <a href="/bitcoin-cash-note/tags/mining/" rel="tag"># mining</a>
+            <a href="/bitcoin-cash-note/tags/bitcoin/" rel="tag"># bitcoin</a>
           
-            <a href="/bitcoin-cash-note/tags/pool/" rel="tag"># pool</a>
+            <a href="/bitcoin-cash-note/tags/network/" rel="tag"># network</a>
           
-            <a href="/bitcoin-cash-note/tags/satoshi/" rel="tag"># satoshi</a>
+            <a href="/bitcoin-cash-note/tags/smallworld/" rel="tag"># smallworld</a>
           
         </div>
       
@@ -406,8 +417,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/bitcoin-cash-note/2018/02/01/the-long-dispute-on-scaling-bitcoin/" rel="next" title="比特币扩容纷争">
-                <i class="fa fa-chevron-left"></i> 比特币扩容纷争
+              <a href="/bitcoin-cash-note/2018/03/04/the-meaning-of-mining-pool/" rel="next" title="矿池的意义在哪里？">
+                <i class="fa fa-chevron-left"></i> 矿池的意义在哪里？
               </a>
             
           </div>
@@ -415,10 +426,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/bitcoin-cash-note/2018/06/10/bitcoin-rethink-1-small-world-network/" rel="prev" title="正本清源比特币之一：小世界网络">
-                正本清源比特币之一：小世界网络 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -557,7 +564,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、去中心化"><span class="nav-text">1、去中心化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、矿池"><span class="nav-text">2、矿池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、全网为何不能每次按算力平分"><span class="nav-text">3、全网为何不能每次按算力平分</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是小世界网络？"><span class="nav-text">什么是小世界网络？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小世界网络有什么意义？"><span class="nav-text">小世界网络有什么意义？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小世界网络是否让比特币变得中心化？"><span class="nav-text">小世界网络是否让比特币变得中心化？</span></a></li></ol></div>
             
 
           </div>
@@ -723,9 +730,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://imcoddy.github.io/bitcoin-cash-note/2018/03/04/the-meaning-of-mining-pool/';
-          this.page.identifier = '2018/03/04/the-meaning-of-mining-pool/';
-          this.page.title = '矿池的意义在哪里？';
+          this.page.url = 'https://imcoddy.github.io/bitcoin-cash-note/2018/06/10/bitcoin-rethink-1-small-world-network/';
+          this.page.identifier = '2018/06/10/bitcoin-rethink-1-small-world-network/';
+          this.page.title = '正本清源比特币之一：小世界网络';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://imcoddy.disqus.com/embed.js';
