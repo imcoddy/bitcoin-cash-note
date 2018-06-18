@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en,cn,zh-CN,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/bitcoin-cash-note/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/bitcoin-cash-note/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/bitcoin-cash-note/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/bitcoin-cash-note/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/bitcoin-cash-note/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/bitcoin-cash-note/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/bitcoin-cash-note/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="bitcoincash,bitcoin,smallworld,0-conf," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言：比特币诞生至今已经近十年，但当被问及比特币是什么时，依然很少有人能够准确地解释清楚。《正本清源比特币》系列，将追寻中本聪的足迹，向读者展示比特币创造者对比特币的构想及背后蕴含的寓意，以纠正一些人对比特币的误解。 本文要纠正的，是大家对比特币安全模式的认知：零确认交易。">
+<meta name="keywords" content="bitcoincash,bitcoin,smallworld,0-conf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正本清源比特币之二：零确认交易">
+<meta property="og:url" content="https://imcoddy.github.io/bitcoin-cash-note/2018/06/14/bitcoin-rethink-2-zero-conf/index.html">
+<meta property="og:site_name" content="Bitcoin Cash Note">
+<meta property="og:description" content="前言：比特币诞生至今已经近十年，但当被问及比特币是什么时，依然很少有人能够准确地解释清楚。《正本清源比特币》系列，将追寻中本聪的足迹，向读者展示比特币创造者对比特币的构想及背后蕴含的寓意，以纠正一些人对比特币的误解。 本文要纠正的，是大家对比特币安全模式的认知：零确认交易。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://i1375.photobucket.com/albums/ag455/imcoddy/Blog/Wat-is-blockchain-Sebastiaan-Verdonk-Double-Spending-Problem_zpsulmobl6h.png">
+<meta property="og:updated_time" content="2018-06-18T04:13:53.958Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正本清源比特币之二：零确认交易">
+<meta name="twitter:description" content="前言：比特币诞生至今已经近十年，但当被问及比特币是什么时，依然很少有人能够准确地解释清楚。《正本清源比特币》系列，将追寻中本聪的足迹，向读者展示比特币创造者对比特币的构想及背后蕴含的寓意，以纠正一些人对比特币的误解。 本文要纠正的，是大家对比特币安全模式的认知：零确认交易。">
+<meta name="twitter:image" content="https://i1375.photobucket.com/albums/ag455/imcoddy/Blog/Wat-is-blockchain-Sebastiaan-Verdonk-Double-Spending-Problem_zpsulmobl6h.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/bitcoin-cash-note/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://imcoddy.github.io/bitcoin-cash-note/2018/06/14/bitcoin-rethink-2-zero-conf/"/>
+
+
+
+
+
+  <title>正本清源比特币之二：零确认交易 | Bitcoin Cash Note</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/bitcoin-cash-note/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bitcoin Cash Note</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/bitcoin-cash-note/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/bitcoin-cash-note/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/bitcoin-cash-note/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/bitcoin-cash-note/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://imcoddy.github.io/bitcoin-cash-note/bitcoin-cash-note/2018/06/14/bitcoin-rethink-2-zero-conf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="imcoddy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/bitcoin-cash-note/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bitcoin Cash Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">正本清源比特币之二：零确认交易</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-14T10:08:36+09:00">
+                2018-06-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/bitcoin-cash-note/2018/06/14/bitcoin-rethink-2-zero-conf/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/14/bitcoin-rethink-2-zero-conf/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前言：比特币诞生至今已经近十年，但当被问及比特币是什么时，依然很少有人能够准确地解释清楚。《正本清源比特币》系列，将追寻中本聪的足迹，向读者展示比特币创造者对比特币的构想及背后蕴含的寓意，以纠正一些人对比特币的误解。</p>
+<p>本文要纠正的，是大家对比特币安全模式的认知：零确认交易。</p>
+<a id="more"></a>
+<h2 id="什么是零确认交易？"><a href="#什么是零确认交易？" class="headerlink" title="什么是零确认交易？"></a>什么是零确认交易？</h2><p>与物理世界的资产不同，在数字世界里面，数据是可以复制的。这使得去中心化电子支付在很长的一段时间内无法实现，因为需要有一个中间媒介，来裁定一笔钱是不是已经被花掉，否则可能会出现一笔钱既转给了 A，又转给了 B 的情况。这就是大家说的双花(Double Spent)问题。</p>
+<p><img src="https://i1375.photobucket.com/albums/ag455/imcoddy/Blog/Wat-is-blockchain-Sebastiaan-Verdonk-Double-Spending-Problem_zpsulmobl6h.png" alt="double-spent-problem"></p>
+<p>中本聪设计的 PoW 方式，创造性地解决了这个问题：节点通过进行大量 SHA256 计算一个找到符合当前难度下的 hash 值，才能获得区块链的一次写入权，其它节点在接收到这个区块后将在当前最长链下继续相同的操作，使得区块链能不断扩展。如果想要双花这笔交易，则需要花费更多的计算以生成一条更长的链让其它节点接受。一笔交易所在的区块的高度与当前最新区块高度的差值即这笔交易的确认数，确认数越多，意味着要篡改这笔交易所需要的工作量也越大，即这笔交易被更改的可能性将随着时间的流逝而越来越小。</p>
+<p>比特币平均十分钟出一个区块，这使得交易信息在被打包入区块链前处于一个待确认的状态：一笔比特币交易广播到节点后，会进入该节点的内存池中，并向全网广播这笔交易。这笔还没有被打包的交易则称为零确认交易。</p>
+<p>零确认交易并不是什么新技术，是否接受它、让零确认交易能得以足够广泛的应用，取决于商家，以及大众的认知。</p>
+<h2 id="零确认交易的设想"><a href="#零确认交易的设想" class="headerlink" title="零确认交易的设想"></a>零确认交易的设想</h2><p>接受零确认交易意味着可以更快地结束用户的支付请求。毕竟与几乎即时完成的支付体验相比，要求用户在发送交易后至少需要等待一个确认才交付在大多数的场景下是不现实的。</p>
+<p>中本聪在 2010 年回复 BM 质疑比特币十分钟确认太慢的时候，曾提出了 Payment Processor 的<a href="https://bitcointalk.org/index.php?topic=532.msg6306#msg6306" target="_blank" rel="noopener">说法</a>，用于快速交易支付：</p>
+<blockquote>
+<blockquote>
+<p>Quote from: bytemaster on July 28, 2010, 08:59:42 PM<br>Besides, 10 minutes is too long to verify that payment is good.  It needs to be as fast as swiping a credit card is today.</p>
+</blockquote>
+<p>See the snack machine thread, I outline how a payment processor could verify payments well enough, actually really well (much lower fraud rate than credit cards), in something like 10 seconds or less.  If you don’t believe me or don’t get it, I don’t have time to try to convince you, sorry.<br><a href="http://bitcointalk.org/index.php?topic=423.msg3819#msg3819" target="_blank" rel="noopener">http://bitcointalk.org/index.php?topic=423.msg3819#msg3819</a></p>
+</blockquote>
+<p>由于这时候零确认只存在节点的内存池中，并没有被打包上链，有可能会被双花的风险，中本聪将零确认交易称为“二等居民”，并在 <a href="https://bitcointalk.org/index.php?topic=423.msg3819#msg3819" target="_blank" rel="noopener">Snack Machine</a> 一帖中，给出了他的解决方案：</p>
+<blockquote>
+<p>I believe it’ll be possible for a payment processing company to provide as a service the rapid distribution of transactions with good-enough checking in something like 10 seconds or less.<br>The network nodes only accept the first version of a transaction they receive to incorporate into the block they’re trying to generate.  When you broadcast a transaction, if someone else broadcasts a double-spend at the same time, it’s a race to propagate to the most nodes first. If one has a slight head start, it’ll geometrically spread through the network faster and get most of the nodes.</p>
+</blockquote>
+<p>简单地说，中本聪在设计比特币的时候，认为零确认交易是可行的，其方法是节点将交易信息加到自己的内存池，如果发现有相同的 UTXO 则拒绝。由于试图双花的交易发出的时间将晚于发给商家的交易，商家只需要稍等片刻，待交易信息传递到绝大多数节点即可。</p>
+<h2 id="商家为何接受-不接受零确认支付？"><a href="#商家为何接受-不接受零确认支付？" class="headerlink" title="商家为何接受/不接受零确认支付？"></a>商家为何接受/不接受零确认支付？</h2><p>商家要接受现金之外的其它的支付方式，是需要考虑利弊的。一方面商家希望用户能够方便快捷地支付，以便能有更多的时间去服务更多的用户；另一方面，商家也需要考虑该支付手段是否足够安全，以免商品被购买后即无法收款。信用卡就是一个很好的例子，尽管不时出现信用卡盗刷导致坏单的情况，以及信用卡结算周期长（通常是一个月）并且还要收手续费（一般 VISA 以及 MasterCard 收取商家 2% 的手续费），但因为使用的人群广泛，在对于商家来说带来的客流量的收益大于可能的损失的情况下，店家乐于支持也是合情合理的事情。</p>
+<p>对于很多商家（尤其是线下商家）来说，支付过程需要的时间过长几乎是不可容忍的，这客观上有着接受零确认的需求。因此，在讨论支持比特币支付的时候，我们更需要关注的是支持比特币支付能否做得比信用卡更好。这就转变成一个得失比的问题了：比如说，假设某商家因支持零确认支付而营业额可能将增加 20000 元，如果一个用户要求用比特币购买一杯 10 元的咖啡，商家接受到交易后确信这笔交易有 99% 的概率将进入下一个区块，那么它是否值得为了那 1% 的损失 10 元的可能性，而让用户在一边等上十分钟？</p>
+<p>比特币支付目前还处于用户和商家互相促进的过程，更多的比特币用户的存在会让更多的商家愿意支持比特币支付，而更好的支付体验、更低廉的手续成本、更低的坏单率，会让更多商家让利于用户从而更多的培养更多的比特币用户。由于比特币去中心化的原因，商家无法像在信用卡盗刷后向相关机构投诉那样挽回损失，为了自身利益在接受零确认交易上自然容易对其安全性稍存疑惑。这是行业发展早期知识普及缺乏的结果。</p>
+<p>因此，尽管像 Bitpay 这样的支付处理商很早就提供了接受零确认交易的选项，普及推广培养用户习惯也着实需要时间。而这随着比特币链上交易增多开始拥堵后情况变得更加糟糕：矿工在无法一次性打包完内存池的全部交易时会优先打包高手续的交易，为了缓解交易长时间没法确认的情况，BTC 引入了替换手续费 Replace-by-fee 的功能，允许用户将交易标记为 replaceable 并在这笔交易未确认前增加手续费来替换掉。这破坏了零确认交易的根基，加深了大众认为零确认交易不安全的印象，尽管商家可以选择设置成不接受 RBF 的交易。BCH 在分叉时除了修改了区块上限的大小之外，另外一个改动是移除了 RBF 的功能，这也是为其“现金”的定位恢复推动接受零确认交易打下基础。</p>
+<h2 id="接受零确认交易安全吗？"><a href="#接受零确认交易安全吗？" class="headerlink" title="接受零确认交易安全吗？"></a>接受零确认交易安全吗？</h2><p>零确认交易至今还没能得到广泛使用，很大原因是人们认为交易没有被确认的话是不安全的。客观地说，零确认交易被双花的可能性的确要比已经被打包的交易要大一些，但要注意的是，安全是一个相对的概念，脱离具体金额谈论零确认交易的安全性，似乎和“抛开剂量谈毒性是耍流氓”有异曲同工之处。本质上，零确认交易是否足够安全，是一个经济问题而非单纯的技术问题。</p>
+<p>零确认交易是否安全，取决于成功双花这笔交易的概率是否足够低。而要双花一笔交易，需要矿工的参与。矿工愿意（配合用户）去双花的可能性如何呢？如果你看过前一篇文章<a href="https://imcoddy.github.io/bitcoin-cash-note/2018/06/10/bitcoin-rethink-1-small-world-network/">《正本清源比特币之一：小世界网络》</a>，理解节点是紧密连接并且互相竞争出块的话，将会对中本聪的零确认模型有更深刻的理解。</p>
+<p>在比特币这个小世界网络中，信息的传递通常不超过两跳，这意味着，交易信息的传递非常迅速（现在只需要两秒即可几乎传遍全网）。在这样的网络里面，同个 UTXO 的两笔交易，先发出来的交易在传播时占了时机的优势，后发出来的交易（即使只差 0.01 秒）将难以在落后的情况下后来居上抢先传递到 51% 以上的节点的内存池里。</p>
+<p>因此，要想成功双花，会有用户试图构建超低手续费的交易、利用节点设置的传递规则的差异以达到延缓那笔交易传播。事实上，绝太多数的双花企图都是这样做的，这可以在 <a href="https://doublespend.cash/" target="_blank" rel="noopener">https://doublespend.cash/</a> 查看到。商家在应对这样的交易时是可以做出风险评估的，毕竟目前主动构建低于目前正常手续费 1sat/byte 的交易本身就比较有嫌疑，支付提供商可以给予商家提示，让顾客等一个确认后再处于，或者多向几个不同的节点请求确认这笔交易是否存在，毕竟超低手续费的交易可能根本就没传递下去。</p>
+<p>另一个可能是矿工为了双花一笔交易，刻意将一笔用于双花的交易 A 隐藏而不向全网传播，待用于与商家支付的那笔交易 B 被商家承认后再试图将双花的交易 A 打包进区块链。对于这种情况，该矿工将有着失去下一个块的打包风险，因为它的内存池存的是交易 A 而不是交易 B，从而变成了为了双花一笔交易而失去 12.5 个币的奖励，在这笔交易的价值小于奖励值的情况下是经济不可行的。如果矿工成功出块将交易 A 打包而造成交易 B 失败，这就意味着该矿工对整个网络不诚实，没有将收到的交易信息及时广播，其它的矿工会因为自己的利益受损而对该矿工进行惩罚，将其暂时列入黑名单，毕竟矿工们是竞争关系，维持与其它矿工的连接需要成本。这将使得该矿工接收其它节点的信息速度变慢，导致孤块率上升，最终出块的利润减少，长期来看也是得不偿失的事情。</p>
+<p>能够想明白这个矿工之间的博弈，就会对 PoW 有了更深刻的了解：比特币本身是一个竞争的激励系统，不只是单纯算力的堆积，更需要对整个网络维护的投入。矿工之间比拼的不是谁先找到块，而是谁能更快地将找到的块更快地传递给所有参与者。商家和用户并不需要信赖于具体的矿工，他们只需要将交易随机发到网络上，让矿工们争先恐后为其打包即可。</p>
+<p>因此，我们至少可以认为，在一笔交易的数额小于区块奖励并在区块浏览器上可看到的情况下，我们可以认为零确认接受这笔交易是几乎安全无误的。而根据今天的价格，这个数额足以满足大部分人的日常需求。</p>
+<p>或许有一天，大众在使用比特币支付时不再需要关注确认数的多少。毕竟，有多少人知道支付宝</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎捐赠 BCH 鼓励作者</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="bitcoin_qr" src="/bitcoin-cash-note/images/bitcoin.png" alt="imcoddy Bitcoin"/>
+        <p>Bitcoin</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/bitcoin-cash-note/tags/bitcoincash/" rel="tag"># bitcoincash</a>
+          
+            <a href="/bitcoin-cash-note/tags/bitcoin/" rel="tag"># bitcoin</a>
+          
+            <a href="/bitcoin-cash-note/tags/smallworld/" rel="tag"># smallworld</a>
+          
+            <a href="/bitcoin-cash-note/tags/0-conf/" rel="tag"># 0-conf</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/bitcoin-cash-note/2018/06/10/bitcoin-rethink-1-small-world-network/" rel="next" title="正本清源比特币之一：小世界网络">
+                <i class="fa fa-chevron-left"></i> 正本清源比特币之一：小世界网络
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">imcoddy</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/bitcoin-cash-note/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/bitcoin-cash-note/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/bitcoin-cash-note/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是零确认交易？"><span class="nav-text">什么是零确认交易？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#零确认交易的设想"><span class="nav-text">零确认交易的设想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#商家为何接受-不接受零确认支付？"><span class="nav-text">商家为何接受/不接受零确认支付？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接受零确认交易安全吗？"><span class="nav-text">接受零确认交易安全吗？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">imcoddy</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/bitcoin-cash-note/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/bitcoin-cash-note/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/bitcoin-cash-note/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/bitcoin-cash-note/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/bitcoin-cash-note/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/bitcoin-cash-note/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/bitcoin-cash-note/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/bitcoin-cash-note/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/bitcoin-cash-note/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/bitcoin-cash-note/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/bitcoin-cash-note/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/bitcoin-cash-note/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/bitcoin-cash-note/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://imcoddy.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://imcoddy.github.io/bitcoin-cash-note/2018/06/14/bitcoin-rethink-2-zero-conf/';
+          this.page.identifier = '2018/06/14/bitcoin-rethink-2-zero-conf/';
+          this.page.title = '正本清源比特币之二：零确认交易';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://imcoddy.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/bitcoin-cash-note/js/src/exturl.js?v=5.1.3"></script>
+
+
+</body>
+</html>
